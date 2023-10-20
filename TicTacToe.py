@@ -64,7 +64,7 @@ def _userinput():
 
 def _gameplay():
     ongoing = True
-    p1t, p2t = True, False
+    p1t = True
 
     player1 = _chooseplayer()
     if player1 == 'X':
@@ -73,6 +73,9 @@ def _gameplay():
         player2 = 'X'
 
     while ongoing:
+        turn = _playerturn(p1t)
+        print(turn)
+
         location = _userinput()
         if(board[location] != ' '):
             print("Location already occupied, Try again!")
@@ -87,4 +90,3 @@ def _gameplay():
             p1t = True
 
 _gameplay()
-
