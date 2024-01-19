@@ -13,17 +13,16 @@ def _chooseplayer():
     result = ''
     approved = False
     while(not approved):
-        result = input("Player 1 please choose 'X' or 'O':")
-        if(result == 'X' or result == 'O'):
+        result = input("Player 1 please choose 'X' or 'O':").upper()
+        if(result == 'X' or 'x' or result == 'O' or 'o'):
             approved = True
-    
+
     return result
 
 def _playerturn(p):
     return ("Player1's turn!" if p else "Player2's turn!")
 
 def _wincheck(mark, location):
-
     global board
     board[location] = mark
     _display(board)
@@ -75,7 +74,7 @@ def _gameplay():
     while ongoing:
         turn = _playerturn(p1t)
         print(turn)
-
+        _display(board)
         location = _userinput()
         if(board[location] != ' '):
             print("Location already occupied, Try again!")
