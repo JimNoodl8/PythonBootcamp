@@ -88,9 +88,11 @@ while in_progress:
     at_war = True
     
     while at_war:
-        
+    
         if player_one_played_cards[-1].value < player_two_played_cards[-1].value:
             print(f'Fight Between {player_one_played_cards[-1]} and {player_two_played_cards[-1]}')
+            random.shuffle(player_one_played_cards)
+            random.shuffle(player_two_played_cards)
             player_two.add_cards(player_one_played_cards)
             player_two.add_cards(player_two_played_cards)
             print(f'Player one cards left: {len(player_one.all_cards)}')
@@ -99,6 +101,8 @@ while in_progress:
             
         elif player_one_played_cards[-1].value > player_two_played_cards[-1].value:
             print(f'Fight Between {player_one_played_cards[-1]} and {player_two_played_cards[-1]}')
+            random.shuffle(player_one_played_cards)
+            random.shuffle(player_two_played_cards)
             player_one.add_cards(player_one_played_cards)
             player_one.add_cards(player_two_played_cards)
             print(f'Player one cards left: {len(player_one.all_cards)}')
