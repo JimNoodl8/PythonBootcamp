@@ -67,6 +67,10 @@ in_progress = True
 round_num = 0
 
 while in_progress:
+    if round_num > 3000:
+        random.shuffle(player_one.all_cards)
+        random.shuffle(player_two.all_cards)
+
     round_num += 1
     print(f'Round: {round_num}')
     
